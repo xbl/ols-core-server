@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('ENVs') {
+            steps {
+                sh 'env'
+            }
+        }
         stage('Test') {
             steps {
                 sh 'scripts/test.sh'
