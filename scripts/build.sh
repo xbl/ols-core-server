@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 
-docker run -rm -v $(pwd):/app -w /app java:8 /bin/bash -c "./gradlew clean build -x test"
+docker run --rm -v $(pwd):/app -w /app java:8 /bin/bash -c "./gradlew clean build -x test"
 
