@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-class UserServiceApplicationTests {
+class CoreServerApplicationTests {
 
     @Test
     void should_compare_number_correctly() {

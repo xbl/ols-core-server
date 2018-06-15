@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/tw-nho/user-service.git', branch: 'master'
+                git url: 'https://github.com/tw-nho/ols-core-server.git', branch: 'master'
             }
 
         }
