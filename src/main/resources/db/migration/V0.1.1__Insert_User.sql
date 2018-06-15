@@ -1,0 +1,1 @@
+insert into t_user (id, name, password, phone_number) values ('09438finov0f5polfda4fap0434', 'nho', '123', '18192235667')
