@@ -15,12 +15,9 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<UserDTO> listUsers() {
-        return userRepository.findAll().stream().map(user -> {
-            UserDTO userDTO = new UserDTO();
-            userDTO.setId(user.getId());
-            userDTO.setName(user.getName());
-            userDTO.setPhoneNumber(user.getPhoneNumber());
-            return userDTO;
-        }).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(user ->
+                UserDTO.builder().id(user.getId()).name(user.getName())
+                        .phoneNumber(user.getPhoneNumber()).build())
+                .collect(Collectors.toList());
     }
 }
