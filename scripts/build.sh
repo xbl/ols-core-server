@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-./gradlew clean test
+./gradlew clean build -x test
 
