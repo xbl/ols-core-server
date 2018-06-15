@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/tw-nho/ols-core-server.git', branch: 'master'
-            }
-
-        }
         stage('Test') {
             steps {
                 sh 'scripts/test.sh'
