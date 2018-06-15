@@ -1,4 +1,4 @@
-## Online Learning System
+## Online Learning System Server
 
 This project is used for ThoughtWorks NHO.
 
@@ -7,6 +7,9 @@ This project is used for ThoughtWorks NHO.
 - JDK 8+
 - Intellij IDEA
 
+
+### Query H2 Database
+Startup the server on your local machine, then visit <http://localhost:8081/h2-console/>
 
 ### Troubleshoot
 
