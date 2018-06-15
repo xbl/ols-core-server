@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-./gradlew clean test
+
+docker run --rm -v ${WORKSPACE}:/app -w /app java:8 /bin/bash -c "./gradlew clean test"
