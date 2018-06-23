@@ -10,7 +10,7 @@ class CoreServerApplicationTests {
 
     @Test
     void should_compare_number_correctly() {
-        assertThat(1, is(1));
+        assertThat(1, is(2));
     }
 
 }
