@@ -6,10 +6,25 @@ This project is used for ThoughtWorks NHO.
 - Git
 - JDK 8+
 - Intellij IDEA
+- Docker
+- Docker compose
 
+
+### Startup redis
+
+```bash
+$ docker-compose up -d redis
+```
+
+### Startup server
+
+```bash
+$ ./gradlew bRun
+```
 
 ### Query H2 Database
 Startup the server on your local machine, then visit <http://localhost:8081/h2-console/>
+
 
 ### Troubleshoot
 

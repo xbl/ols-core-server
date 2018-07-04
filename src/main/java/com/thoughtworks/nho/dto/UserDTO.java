@@ -10,5 +10,5 @@ import lombok.*;
 public class UserDTO {
     private String id;
     private String name;
-    private String phoneNumber;
+    private String realName;
 }
