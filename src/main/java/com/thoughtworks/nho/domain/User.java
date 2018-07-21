@@ -1,8 +1,7 @@
 package com.thoughtworks.nho.domain;
 
 import com.thoughtworks.nho.util.StringUtils;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -12,6 +11,8 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 public class User {
     @Id
     private String id;

@@ -32,4 +32,9 @@ public class UserController {
     public JWTUser find(@PathVariable String username) {
         return UserFactory.fromUser(userService.findByName(username));
     }
+
+    @GetMapping
+    public JWTUser updateUser(@RequestBody JWTUser jwtUser) {
+        return jwtUser;
+    }
 }
