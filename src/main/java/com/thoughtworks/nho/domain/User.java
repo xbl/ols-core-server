@@ -25,10 +25,6 @@ public class User {
     @Column(name = "real_name")
     private String realName;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "role")
-    private Role role;
-
     public User() {
         id = StringUtils.uuid();
     }

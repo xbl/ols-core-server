@@ -1,8 +1,6 @@
 package com.thoughtworks.nho.service.impl;
 
 import com.thoughtworks.nho.cofiguration.security.JWTUser;
-import com.thoughtworks.nho.domain.Privilege;
-import com.thoughtworks.nho.domain.Role;
 import com.thoughtworks.nho.domain.User;
 import com.thoughtworks.nho.dto.UserDTO;
 import com.thoughtworks.nho.exception.UserExistedException;
@@ -18,8 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -62,12 +58,9 @@ public class UserServiceImpl implements UserService {
         if (user == null) {
             throw new UsernameNotFoundException("Username does not exist.");
         }
-        Role role = user.getRole();
         return JWTUser.builder()
                 .username(user.getName())
                 .password(user.getPassword())
-                .role(user.getRole().getSymbol().name())
-                .privileges(role.getPrivileges().stream().map(Privilege::getSymbol).collect(toList()))
                 .build();
     }
 }

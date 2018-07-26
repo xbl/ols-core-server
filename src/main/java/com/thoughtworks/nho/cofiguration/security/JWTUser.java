@@ -1,18 +1,13 @@
 package com.thoughtworks.nho.cofiguration.security;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.thoughtworks.nho.domain.Privilege;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Collections;
 
 @Getter
 @Setter
@@ -27,16 +22,10 @@ public class JWTUser implements UserDetails {
 
     private String password;
 
-    private String role;
-
-    private List<Privilege.Symbol> privileges;
-
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return privileges.stream()
-                .map(privilege -> new SimpleGrantedAuthority(String.join("_", "ROLE", privilege.name())))
-                .collect(Collectors.toList());
+        return Collections.emptyList();
     }
 
     @Override

@@ -21,20 +21,13 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @Secured(CREATE_USER)
     public JWTUser create(@RequestBody User user) {
         return UserFactory.fromUser(userService.create(user));
     }
 
     @GetMapping("{username}")
     @ResponseStatus(HttpStatus.OK)
-    @Secured(RETRIVE_USER)
     public JWTUser find(@PathVariable String username) {
         return UserFactory.fromUser(userService.findByName(username));
-    }
-
-    @GetMapping
-    public JWTUser updateUser(@RequestBody JWTUser jwtUser) {
-        return jwtUser;
     }
 }
