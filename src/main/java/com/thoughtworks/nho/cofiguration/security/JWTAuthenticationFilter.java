@@ -35,11 +35,6 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     private void handlerRequestAttachedJWTToken(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         try {
-            if (authService.isTokenInBlackList(request)) {
-                logger.error("Black list token.");
-                throw new InvalidCredentialException();
-            }
-
             JWTUser jwtUser = authService.getAuthorizedJWTUser(request);
             UsernamePasswordAuthenticationToken token =
                     new UsernamePasswordAuthenticationToken(

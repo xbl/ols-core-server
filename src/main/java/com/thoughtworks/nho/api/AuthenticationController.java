@@ -17,12 +17,6 @@ public class AuthenticationController {
     @Autowired
     private AuthService authService;
 
-    @DeleteMapping
-    @ResponseStatus(HttpStatus.OK)
-    public void logout(HttpServletRequest request) {
-        authService.logout(request);
-    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public JWTUser login(@RequestBody LoginRequestUser loginRequestUser, HttpServletResponse response) {

@@ -17,12 +17,9 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-    private static final String PREFIX_BLACK_LIST = "SSJ-BLACKLIST-";
-
     @Value("${security.jwt.token-prefix:Bearer}")
     private String tokenPrefix;
 
@@ -53,13 +50,6 @@ public class AuthServiceImpl implements AuthService {
         return principal;
     }
 
-    @Override
-    public void logout(HttpServletRequest request) {
-        String token = extractToken(request);
-        String key = PREFIX_BLACK_LIST + token;
-        redisTemplate.opsForValue().set(key, token);
-        redisTemplate.expire(key, expirationInSeconds, TimeUnit.SECONDS);
-    }
 
     @Override
     public JWTUser getAuthorizedJWTUser(HttpServletRequest request) {
@@ -71,12 +61,6 @@ public class AuthServiceImpl implements AuthService {
     public boolean hasJWTToken(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(header);
         return StringUtils.hasText(authorizationHeader) && authorizationHeader.startsWith(tokenPrefix);
-    }
-
-    @Override
-    public boolean isTokenInBlackList(HttpServletRequest request) {
-        String token = extractToken(request);
-        return StringUtils.hasText(redisTemplate.opsForValue().get(PREFIX_BLACK_LIST + token));
     }
 
     private String extractToken(HttpServletRequest request) {
