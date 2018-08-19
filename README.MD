@@ -10,12 +10,6 @@ This project is used for ThoughtWorks NHO.
 - Docker compose
 
 
-### Startup redis
-
-```bash
-$ docker-compose up -d redis
-```
-
 ### Startup server
 
 ```bash
