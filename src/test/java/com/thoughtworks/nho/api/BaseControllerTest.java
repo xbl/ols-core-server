@@ -18,7 +18,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@Transactional
 class BaseControllerTest {
 
     @Autowired

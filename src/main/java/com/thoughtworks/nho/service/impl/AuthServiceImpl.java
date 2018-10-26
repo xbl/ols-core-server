@@ -8,7 +8,6 @@ import com.thoughtworks.nho.service.AuthService;
 import com.thoughtworks.nho.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,9 +33,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public JWTUser login(HttpServletResponse response, LoginRequestUser loginRequestUser) {
