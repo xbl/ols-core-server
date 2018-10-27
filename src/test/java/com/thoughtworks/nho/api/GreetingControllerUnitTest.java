@@ -35,6 +35,6 @@ class GreetingControllerUnitTest {
         mockMvc.perform(get("/api/greeting"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(content().string("Hello, Spring MVC"));
+                .andExpect(content().string("Hello, Spring MVC，111"));
     }
 }
